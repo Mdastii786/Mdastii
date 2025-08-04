@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="100"><defs><radialGradient id="star"><stop offset="0%" stop-color="white"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs><circle cx="10" cy="10" r="2" fill="url(#star)"/><circle cx="50" cy="50" r="1" fill="url(#star)"/><circle cx="100" cy="20" r="1.5" fill="url(#star)"/><circle cx="150" cy="80" r="1" fill="url(#star)"/><circle cx="200" cy="30" r="1.2" fill="url(#star)"/><circle cx="250" cy="90" r="1" fill="url(#star)"/></svg>') repeat;
+    opacity: 0.15;
+    z-index: -1;
+    animation: twinkle 4s infinite ease-in-out;
+}
+
+/* Animations */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.25; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 1.2s ease-out;
+}
+
+.header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+}
+
+.header p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    text-align: left;
+    animation: fadeInUp 1.2s ease-out 0.5s both;
+}
+
+.container h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.container p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+}
+
+.saint {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1.2s ease-out 0.8s both;
+}
+
+.saint h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.saint-image {
+    display: block;
+    margin: 0 auto 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+    height: auto;
+}
+
+.saint p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.saint p strong {
+    color: #ffd700;
+}
+
+.decorative {
+    font-style: italic;
+    font-size: 1.4rem;
+    color: #ffd700;
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+    margin: 2.5rem 0;
+    padding: 1rem;
+    border-left: 4px solid #ffd700;
+    text-align: center;
+}
+
+.back-button,
+.link-button {
+    display: inline-block;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0.5rem;
+}
+
+.back-button:hover,
+.link-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.8);
+}
+
+.back-button:active,
+.link-button:active {
+    transform: scale(0.98);
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    width: 100%;
+    font-size: 1rem;
+    opacity: 0.85;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.toast {
+    position: fixed;
+    top: 20px;
+    right: -300px;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+    transition: right 0.6s ease-in-out;
+    z-index: 1000;
+}
+
+.toast.show {
+    right: 20px;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 3rem 1.5rem;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .header h1 {
+        font-size: 2.5rem;
+    }
+
+    .header p {
+        font-size: 1.1rem;
+    }
+
+    .container {
+        padding: 2rem 1.5rem;
+    }
+
+    .container h2 {
+        font-size: 2rem;
+    }
+
+    .container p {
+        font-size: 1.1rem;
+    }
+
+    .saint h3 {
+        font-size: 1.8rem;
+    }
+
+    .saint p {
+        font-size: 1rem;
+    }
+
+    .decorative {
+        font-size: 1.2rem;
+        margin: 2rem 0;
+    }
+
+    .back-button,
+    .link-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 2rem 1rem;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    .container h2 {
+        font-size: 1.5rem;
+    }
+
+    .container p {
+        font-size: 1rem;
+    }
+
+    .saint {
+        padding: 1.5rem;
+    }
+
+    .saint h3 {
+        font-size: 1.5rem;
+    }
+
+    .saint p {
+        font-size: 0.95rem;
+    }
+
+    .decorative {
+        font-size: 1.1rem;
+        margin: 1.5rem 0;
+    }
+
+    .back-button,
+    .link-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .toast {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        top: 10px;
+        right: -280px;
+    }
+
+    .toast.show {
+        right: 10px;
+    }
+}
